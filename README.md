@@ -16,5 +16,5 @@ RESPONSE 200
 RESPONSE 404
 Sorry, we don't know this surname :-(
 
-RESPONSE 401
+RESPONSE 403
 Quota exceeded! See you tomorrow...
