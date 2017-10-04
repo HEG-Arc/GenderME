@@ -3,8 +3,10 @@ from __future__ import unicode_literals
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotFound
 from mediazon.models import Surname
 from django.forms.models import model_to_dict
+from ratelimit.decorators import ratelimit
 
 
+@ratelimit(key='header:HTTP_X_FORWARDED_FOR', rate='9999/d', block=True)
 def gender(request):
     surname = request.GET.get('surname', '')
     if surname:
