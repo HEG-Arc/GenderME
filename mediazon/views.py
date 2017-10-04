@@ -11,7 +11,7 @@ def gender(request):
     surname = request.GET.get('surname', '')
     if surname:
         try:
-            genderme = Surname.objects.get(surname=surname)
+            genderme = Surname.objects.get(surname=surname.lower())
             return JsonResponse(model_to_dict(genderme, exclude='id'))
         except:
             return HttpResponseNotFound("Sorry, we don't know this surname :-(")
